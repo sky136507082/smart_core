@@ -21,4 +21,12 @@ public class TestController {
                 "testModel=" + testModel +
                 '}';
     }
+
+    public TestModel getTestModel() {
+        return testModel;
+    }
+
+    public void setTestModel(TestModel testModel) {
+        this.testModel = testModel;
+    }
 }

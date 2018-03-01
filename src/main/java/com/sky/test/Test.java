@@ -8,6 +8,7 @@ import com.sky.smart.core.helper.IocHelper;
 import com.sky.smart.core.utils.ClassUtil;
 import com.sky.smart.core.utils.ReflectionUtil;
 
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -16,14 +17,16 @@ import java.util.Set;
 public class Test {
     public static void main(String str[]){
       Class<?>[] clsArray = {ClassHelper.class,BeanHelper.class, IocHelper.class,ControllerHelper.class};
+      Set<Class<?>> set = new HashSet<Class<?>>();
       for (Class<?> cls : clsArray){
-          ClassUtil.loadClass(cls.getName(),false);
+          set.add(ClassUtil.loadClass(cls.getName(),false));
       }
 
-      Set<Class<?>> set =   ClassUtil.getClassSet("com.sky.test");
       System.out.println(set.size());
-      for (Class<?> cls :set){
-          System.out.println(ReflectionUtil.newInstance(cls).toString());
-      }
+
+      ClassUtil.getClassSet("com.sky.smart.test");
+      TestController testController = (TestController) BeanHelper.getBean(TestController.class);
+      System.out.println(testController);
+
     }
 }

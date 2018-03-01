@@ -2,6 +2,7 @@ package com.sky.smart.core.helper;
 
 import com.sky.smart.core.annotation.Action;
 import com.sky.smart.core.annotation.Controller;
+import com.sky.smart.core.annotation.Service;
 import com.sky.smart.core.utils.ClassUtil;
 
 import java.util.HashSet;
@@ -35,7 +36,7 @@ public class ClassHelper {
     public static Set<Class<?>> getServiceClassSet(){
         Set<Class<?>> ServiceClassSet = new HashSet<Class<?>>();
         for (Class<?> cls : getClassSet()){
-            if (cls.isAnnotationPresent(Controller.class)){
+            if (cls.isAnnotationPresent(Service.class)){
                 ServiceClassSet.add(cls);
             }
         }
