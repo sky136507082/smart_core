@@ -20,17 +20,14 @@
 <!-- $Id: pom.xml 642118 2008-03-28 08:04:16Z reinhard $ -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-    <parent>
-        <artifactId>smart-basecore</artifactId>
-        <groupId>com.sky.smart</groupId>
-        <version>1.0-SNAPSHOT</version>
-    </parent>
-
     <modelVersion>4.0.0</modelVersion>
+    <groupId>com.sky.smart.application</groupId>
+    <artifactId>smart-test-application</artifactId>
     <packaging>war</packaging>
+    <version>1.0</version>
+    <name>smart-basecore Maven Webapp</name>
+    <url>http://maven.apache.org</url>
 
-    <name>testDemo</name>
-    <artifactId>testDemo</artifactId>
 
     <build>
         <finalName>testDemo</finalName>
@@ -39,7 +36,7 @@
     <dependencies>
       <dependency>
          <groupId>com.sky.smart</groupId>
-         <artifactId>testDemo</artifactId>
+         <artifactId>smart-basecore</artifactId>
         <version>1.0-SNAPSHOT</version>
       </dependency>
     </dependencies>

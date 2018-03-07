@@ -23,7 +23,7 @@ public class ClassUtil {
     }
 
     public static void loadClass(String className){
-        loadClass(className,false);
+        loadClass(className,true);
     }
 
     public static Class<?> loadClass(String className,boolean isInitialized){

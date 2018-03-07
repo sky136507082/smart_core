@@ -26,13 +26,15 @@ public class ControllerHelper {
                     if (method.isAnnotationPresent(Action.class)){
                         Action action = method.getAnnotation(Action.class);
                         String mapping = action.value();
-                        String[] params = mapping.split(":");
-                        if (ArrayUtils.isNotEmpty(params) && params.length==2){
-                            String requestMethod = params[0];
-                            String requestPath = params[1];
-                            Request request = new Request(requestMethod,requestPath);
-                            Handler handler = new Handler(cls,method);
-                            ACTION_MAP.put(request,handler);
+                        if(mapping.matches("\\w+:/\\w*")) {
+                            String[] params = mapping.split(":");
+                            if (ArrayUtils.isNotEmpty(params) && params.length == 2) {
+                                String requestMethod = params[0];
+                                String requestPath = params[1];
+                                Request request = new Request(requestMethod, requestPath);
+                                Handler handler = new Handler(cls, method);
+                                ACTION_MAP.put(request, handler);
+                            }
                         }
                     }
                 }

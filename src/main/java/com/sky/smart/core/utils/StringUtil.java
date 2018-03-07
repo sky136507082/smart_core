@@ -18,7 +18,7 @@ public class StringUtil {
        return !isEmpty(chkStr);
     }
 
-    public String[] splitString(String str,String regex){
+    public static String[] splitString(String str,String regex){
         if (isNotEmpty(str)){
             return str.split(regex);
         }
