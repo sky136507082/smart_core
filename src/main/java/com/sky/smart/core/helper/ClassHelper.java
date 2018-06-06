@@ -5,6 +5,7 @@ import com.sky.smart.core.annotation.Controller;
 import com.sky.smart.core.annotation.Service;
 import com.sky.smart.core.utils.ClassUtil;
 
+import java.lang.annotation.Annotation;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -58,6 +59,26 @@ public class ClassHelper {
         beansClassSet.addAll(getControllerClassSet());
         beansClassSet.addAll(getServiceClassSet());
         beansClassSet.addAll(getModelClassSet());
+        return beansClassSet;
+    }
+
+    public static Set<Class<?>> getClassSetBySuper(Class<?> superCls){
+        Set<Class<?>> classClassSet = new HashSet<Class<?>>();
+        for(Class<?> cls : getClassSet()){
+            if (superCls.isAssignableFrom(cls) && !superCls.equals(cls)){
+                classClassSet.add(cls);
+            }
+        }
+        return classClassSet;
+    }
+
+    public static Set<Class<?>> getClassSetByAnnotation(Class<? extends Annotation> annotationClass){
+        Set<Class<?>> beansClassSet = new HashSet<Class<?>>();
+        for(Class<?> cls : getBeansClassSet()){
+            if (cls.isAnnotationPresent(annotationClass)){
+                beansClassSet.add(cls);
+            }
+        }
         return beansClassSet;
     }
 }

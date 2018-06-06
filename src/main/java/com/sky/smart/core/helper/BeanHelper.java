@@ -29,4 +29,8 @@ public class BeanHelper {
             throw new RuntimeException("can not get bean by name: "+cls);
         return BEAN_MAP.get(cls);
     }
+
+    public static void setBean(Class<?> cls,Object obj){
+        BEAN_MAP.put(cls,obj);
+    }
 }
